@@ -2,10 +2,13 @@ require('dotenv').config();
 
 
 const config = {
-  PORT: process.env.PORT || 8000,
-  DATABASE_URL: process.env.DATABASE_URL,
-  DATABASE_DIALECT: process.env.DATABASE_DIALECT || 'postgresql',
-  NODE_ENV: process.env.NODE_ENV || 'development',
+  port: process.env.PORT || 8000,
+  database: process.env.DATABASE,
+  username: process.env.DATABASE_USER,
+  databaseDialect: process.env.DATABASE_DIALECT || 'postgres',
+  env: process.env.NODE_ENV || 'development',
+  password: process.env.password || null,
+  host: process.env.HOST,
 };
 
 module.exports = config;
