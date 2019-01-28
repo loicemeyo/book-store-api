@@ -27,7 +27,17 @@ app.get('/api/users/:id', (req, res) => db.User.find({
   .then(user => res.status(200).send(user))
   .catch(err => res.status(400).send(err)))
 
-app.get('/api/book/:id', (req, res) => db.Book.findById(req.params.id)
+app.get('/api/book/:id', (req, res) => db.Book.findOne({
+  where: { id: req.params.id },
+  include: [
+    {
+      model: db.User,
+      attributes: ['firstName', 'lastName'],
+      as: 'Authors',
+      through: { attributes: [] },
+    },
+  ],
+})
   .then(book => res.status(200).send(book))
   .catch(err => res.status(400).send(err)))
 
@@ -36,6 +46,12 @@ app.post('/api/books', (req, res) => db.Book.create({
 })
   .then((book) => {
     book.setAuthors([1])
+    res.status(201).send(book)
+  })
+  .catch(err => res.status(400).send(err)))
+app.put('/api/books/:id', (req, res) => db.Book.findById(req.params.id)
+  .then((book) => {
+    book.addAuthors([1])
     res.status(201).send(book)
   })
   .catch(err => res.status(400).send(err)))
