@@ -1,10 +1,16 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const morgan = require('morgan')
+
 const db = require('../database/models')
 
 const app = express();
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
+app.use(morgan('dev'))
+
+app.get('/', (req, res) => res.status(200).send('welcome to books api'))
+
 app.post('/api/users', (req, res) => db.User.create({
   firstName: req.body.first_name,
   lastName: req.body.last_name,
