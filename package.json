@@ -16,7 +16,8 @@
     "uuid": "^3.3.2"
   },
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "node server.js",
+    "start:dev": "nodemon server.js"
   },
   "devDependencies": {
     "eslint": "^5.7.0",
