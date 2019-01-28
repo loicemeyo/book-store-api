@@ -1,9 +1,9 @@
 const config = require('./config')
 
 const defaultConfig = {
-  database: config.database,
-  username: config.username,
-  password: config.password,
+  database: config.databaseName,
+  username: config.dbUsername,
+  password: config.dbPassword,
   host: config.host,
   dialect: config.databaseDialect,
 }
