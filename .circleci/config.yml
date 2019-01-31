@@ -1,0 +1,17 @@
+version: 2
+jobs:
+  build:
+    docker: 
+      - image: circleci/node:8.0.0
+    steps:
+      - checkout 
+      - run:
+      - restore_cache: # special step to restore the dependency cache
+          key: dependency-cache-{{checksum "package.json"}}
+      - save_cache: # saving cache for faster restoration 
+          key: dependency-cache-{{checksum "package.json"}}
+          paths:
+            - ./node_modules
+      - run:
+          name: Run tests
+          command: yarn test
