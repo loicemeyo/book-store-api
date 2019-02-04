@@ -1,5 +1,5 @@
 const db = require('../../database/models')
-const responses = require('../helpers/Responses')
+const responses = require('../lib/helpers/Responses')
 
 class Books {
   static async getAllBooks(req, res) {
