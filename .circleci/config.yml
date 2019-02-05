@@ -5,7 +5,6 @@ jobs:
       - image: circleci/node:8.0.0
     steps:
       - checkout 
-      - run:
       - restore_cache: # special step to restore the dependency cache
           key: dependency-cache-{{checksum "package.json"}}
       - save_cache: # saving cache for faster restoration 
