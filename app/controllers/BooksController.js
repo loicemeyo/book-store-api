@@ -1,7 +1,7 @@
 const db = require('../../database/models')
 const responses = require('../lib/helpers/Responses')
 
-class Books {
+class BooksController {
   static async getAllBooks(req, res) {
     try {
       const books = await db.Book.findAll();
@@ -62,4 +62,4 @@ class Books {
   }
 }
 
-module.exports = Books;
+module.exports = BooksController;

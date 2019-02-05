@@ -7,6 +7,6 @@ const routes = (app) => {
   app.use(apiPrefix, BookRouter);
   app.use(apiPrefix, UsersRouter);
   return app;
-}
+};
 
 module.exports = routes;
