@@ -1,7 +1,7 @@
-const db = require('../../database/models')
-const responses = require('../lib/helpers/Responses')
+const db = require('../../database/models');
+const responses = require('../lib/helpers/Responses');
 
-class Users {
+class UsersController {
   static async getAllUsers(req, res) {
     try {
       const allUsers = await db.User.findAll();
@@ -45,4 +45,4 @@ class Users {
   }
 }
 
-module.exports = Users;
+module.exports = UsersController;
