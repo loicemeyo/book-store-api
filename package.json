@@ -15,12 +15,18 @@
     "pg": "^7.5.0",
     "pg-hstore": "^2.3.2",
     "sequelize": "^4.39.0",
+    "sequelize-cli": "^5.4.0",
     "uuid": "^3.3.2"
   },
   "scripts": {
     "start": "node server.js",
-    "start:dev": "nodemon server.js",
-    "test": "NODE_ENV=test jest --passWithNoTests "
+    "test": "NODE_ENV=test jest --passWithNoTests ",
+    "start:dev": "NODE_ENV=development nodemon server.js",
+    "db:seed": "node_modules/.bin/sequelize db:seed:all",
+    "db:migrate": "node_modules/.bin/sequelize db:migrate",
+    "db:rollback": "node_modules/.bin/sequelize db:migrate:undo:all",
+    "db:rollmigrate": "yarn db:rollback && yarn db:migrate && yarn db:seed",
+    "migration:generate": "node_modules/.bin/sequelize migration:generate"
   },
   "devDependencies": {
     "eslint": "^5.7.0",
