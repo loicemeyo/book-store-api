@@ -6,8 +6,8 @@ jobs:
     steps:
       - checkout 
       - run:
-        name: Install dependencies
-        command: yarn
+          name: Install dependencies
+          command: yarn
       - restore_cache: # special step to restore the dependency cache
           key: dependency-cache-{{checksum "package.json"}}
       - save_cache: # saving cache for faster restoration 
