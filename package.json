@@ -20,8 +20,8 @@
   },
   "scripts": {
     "start": "node server.js",
+    "test": "NODE_ENV=test jest --passWithNoTests ",
     "start:dev": "NODE_ENV=development nodemon server.js",
-    "test": "NODE_ENV=test jest",
     "db:seed": "node_modules/.bin/sequelize db:seed:all",
     "db:migrate": "node_modules/.bin/sequelize db:migrate",
     "db:rollback": "node_modules/.bin/sequelize db:migrate:undo:all",
@@ -33,6 +33,7 @@
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
     "jest": "^24.0.0",
+    "jest-cli":"24.0.0",
     "nodemon": "^1.18.4",
     "supertest": "^3.4.2"
   }
