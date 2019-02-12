@@ -15,7 +15,7 @@ class AuthController {
         email,
         password: hashedPassword,
       })
-      const message = [200, 'User created successfully', true];
+      const message = [201, 'User created successfully', true];
       responses.handleSuccess(res, message, signedUp);
     } catch (error) {
       responses.handleError(error.toString(), 500, res);
