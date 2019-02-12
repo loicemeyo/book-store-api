@@ -13,7 +13,7 @@ const database = {
     ...defaultConfig,
   },
   test: {
-    ...defaultConfig, database: 'test_db',
+    ...defaultConfig, database: 'books_db_test',
   },
   production: {
     ...defaultConfig,

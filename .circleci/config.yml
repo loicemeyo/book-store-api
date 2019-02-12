@@ -15,6 +15,10 @@ jobs:
   build:
     docker: 
       - image: circleci/node:11.8.0
+        environment:
+          DATABASE: books_db_test
+          DATABASE_USER: root
+          HOST: localhost
       - image: circleci/postgres:9.6
         environment:
           POSTGRES_DB: books_db_test
