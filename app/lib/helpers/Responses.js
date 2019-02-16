@@ -1,6 +1,6 @@
 class Responses {
   static handleSuccess(res, message, result) {
-    return res.status(message[0]).json({
+    res.status(message[0]).json({
       success: message[2],
       message: message[1],
       result,
@@ -8,7 +8,7 @@ class Responses {
   }
 
   static handleError(error, statusCode, response) {
-    return response.status(statusCode).json({
+    response.status(statusCode).json({
       success: false,
       error,
     });
