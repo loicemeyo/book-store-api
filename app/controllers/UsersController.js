@@ -1,5 +1,5 @@
 const db = require('../../database/models');
-const responses = require('../lib/helpers/Responses');
+const responses = require('../../lib/helpers/Responses');
 
 class UsersController {
   static async getAllUsers(req, res) {

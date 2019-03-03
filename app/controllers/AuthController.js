@@ -1,6 +1,6 @@
 const db = require('../../database/models');
-const responses = require('../lib/helpers/Responses');
-const encPassword = require('../lib/helpers/Encrypt');
+const responses = require('../../lib/helpers/Responses');
+const encPassword = require('../../lib/helpers/Encrypt');
 
 class AuthController {
   static async signUp(req, res) {
