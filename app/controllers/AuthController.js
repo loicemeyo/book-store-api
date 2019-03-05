@@ -21,6 +21,11 @@ class AuthController {
       responses.handleError(error.toString(), 500, res);
     }
   }
+
+  static login(req, res, next) {
+    res.status(200).json(req.user.id);
+    next();
+  }
 }
 
 module.exports = AuthController;
