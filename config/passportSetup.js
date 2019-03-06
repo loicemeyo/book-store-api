@@ -21,11 +21,11 @@ passport.use(new LocalStrategy({
 }));
 
 passport.use(new JwtStrategy({
-  jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+  jwtFromRequest: req => req.headers.authorization.split(' ')[1],
   secretOrKey: secretKey,
 },
 (jwtPayload, done) => {
-  if (Date.now() > jwtPayload.expires) {
+  if (Date.now() > jwtPayload.expiresIn) {
     return done('jwt expired');
   }
   return done(null, jwtPayload);
@@ -35,7 +35,7 @@ const localAuthentication = passport.authenticate('local', {
   session: false,
 })
 
-const jwtAuthentication = passport.authenticate('jwt')
+const jwtAuthentication = passport.authenticate('jwt', { session: false })
 
 module.exports = {
   localAuthentication,
