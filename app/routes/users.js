@@ -18,9 +18,9 @@ Router.get(
   UsersController.welcomeUser,
 );
 
-Router.get(
-  '*',
-  UsersController.wrongUrl,
-);
+// Router.get(
+  // '*',
+  // UsersController.wrongUrl,
+// );
 
 module.exports = Router;
