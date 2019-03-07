@@ -10,6 +10,7 @@ const basename = path.basename(__filename);
 const sequelize = new Sequelize(envDbConfig.database, envDbConfig.username, envDbConfig.password, {
   host: envDbConfig.host,
   dialect: envDbConfig.dialect,
+  logging: false,
 })
 
 fs.readdirSync(__dirname)
