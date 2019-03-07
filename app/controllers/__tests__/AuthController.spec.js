@@ -1,6 +1,6 @@
 const request = require('supertest');
 const app = require('../../app');
-const { user, userExist } = require('../__mocks__/mockData');
+const { user, userExist } = require('../../../database/__mocks__/mockData');
 const db = require('../../../database/models');
 
 describe('Test Suite for Sign up', () => {
