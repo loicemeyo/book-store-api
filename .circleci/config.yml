@@ -19,6 +19,8 @@ jobs:
           DATABASE: books_db_test
           DATABASE_USER: root
           HOST: localhost
+          SECRET_KEY: someRandomKey
+          JWT_EXPIRATION: 120
       - image: circleci/postgres:9.6
         environment:
           POSTGRES_DB: books_db_test

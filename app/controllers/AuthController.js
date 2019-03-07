@@ -1,4 +1,4 @@
-const HTTStatus = require('http-status');
+const HTTPstatus = require('http-status');
 const db = require('../../database/models');
 const responses = require('../../lib/helpers/Responses');
 const encPassword = require('../../lib/helpers/Encrypt');
@@ -18,10 +18,10 @@ class AuthController {
         email,
         password: hashedPassword,
       })
-      const message = [HTTStatus.CREATED, 'User created successfully', true];
+      const message = [HTTPstatus.CREATED, 'User created successfully', true];
       responses.handleSuccess(res, message, signedUp);
     } catch (error) {
-      responses.handleError(error.toString(), HTTStatus.INTERNAL_SERVER_ERROR, res);
+      responses.handleError(error.toString(), HTTPstatus.INTERNAL_SERVER_ERROR, res);
     }
   }
 
@@ -31,7 +31,7 @@ class AuthController {
       secretKey,
       { expiresIn: jwtExpiration },
     );
-    res.status(HTTStatus.OK).json({
+    res.status(HTTPstatus.OK).json({
       message: 'success',
       token,
     });
@@ -39,7 +39,7 @@ class AuthController {
   }
 
   static testPrivateRoute(req, res, next) {
-    res.status(HTTStatus.OK).send('wow, you accessed a private route');
+    res.status(HTTPstatus.OK).send('wow, you accessed a private route');
     next();
   }
 }

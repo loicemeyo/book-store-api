@@ -1,7 +1,7 @@
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const { Strategy: JwtStrategy, ExtractJwt } = require('passport-jwt');
-const { secretKey } = require('./config');
+const { secretKey, jwtExpiration } = require('./config');
 const db = require('../database/models');
 const EncryptData = require('../lib/helpers/Encrypt');
 
@@ -19,17 +19,12 @@ passport.use(new LocalStrategy({
     done(error);
   }
 }));
-
 passport.use(new JwtStrategy({
   jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
   secretOrKey: secretKey,
+  jsonWebTokenOptions: { maxAge: jwtExpiration },
 },
-(jwtPayload, done) => {
-  if (Date.now() > jwtPayload.expiresIn) {
-    return done('jwt expired');
-  }
-  return done(null, jwtPayload);
-}));
+(jwtPayload, done) => done(null, jwtPayload)));
 
 const localAuthentication = passport.authenticate('local', {
   session: false,

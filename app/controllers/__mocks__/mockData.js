@@ -1,4 +1,4 @@
-const encPass = require('../../lib/helpers/Encrypt');
+const encPass = require('../../../lib/helpers/Encrypt');
 
 const hashedPass = encPass.generateHash('Aa123!!!');
 
