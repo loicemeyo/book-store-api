@@ -1,6 +1,6 @@
 const request = require('supertest');
 const app = require('../../app');
-const { user, userExist } = require('../../../database/__mocks__/mockData');
+const { mockUsers, userExist } = require('../../../database/__mocks__/mockData');
 const db = require('../../../database/models');
 
 describe('Test Suite for Sign up', () => {
@@ -16,7 +16,7 @@ describe('Test Suite for Sign up', () => {
     request(app)
       .post('/api/v1/signup')
       .set('Content-Type', 'application/json')
-      .send(user.user1)
+      .send(mockUsers.user1)
       .expect(400)
       .end((err, res) => {
         expect(res.body.success).toBeFalsy();
@@ -30,7 +30,7 @@ describe('Test Suite for Sign up', () => {
     request(app)
       .post('/api/v1/signup')
       .set('Content-Type', 'application/json')
-      .send(user.user2)
+      .send(mockUsers.user2)
       .expect(400)
       .end((err, res) => {
         expect(res.body.success).toBeFalsy();
@@ -44,7 +44,7 @@ describe('Test Suite for Sign up', () => {
     request(app)
       .post('/api/v1/signup')
       .set('Content-Type', 'application/json')
-      .send(user.user3)
+      .send(mockUsers.user3)
       .expect(400)
       .end((err, res) => {
         expect(res.body.success).toBeFalsy();
@@ -58,7 +58,7 @@ describe('Test Suite for Sign up', () => {
     request(app)
       .post('/api/v1/signup')
       .set('Content-Type', 'application/json')
-      .send(user.user4)
+      .send(mockUsers.user4)
       .expect(400)
       .end((err, res) => {
         expect(res.body.success).toBeFalsy();
@@ -72,7 +72,7 @@ describe('Test Suite for Sign up', () => {
     request(app)
       .post('/api/v1/signup')
       .set('Content-Type', 'application/json')
-      .send(user.user5)
+      .send(mockUsers.user5)
       .expect(400)
       .end((err, res) => {
         expect(res.body.success).toBeFalsy();
@@ -86,7 +86,7 @@ describe('Test Suite for Sign up', () => {
     request(app)
       .post('/api/v1/signup')
       .set('Content-Type', 'application/json')
-      .send(user.user6)
+      .send(mockUsers.user6)
       .expect(201)
       .end((err, res) => {
         expect(res.body.success).toBeTruthy();
