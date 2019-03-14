@@ -2,7 +2,7 @@ const encPass = require('../../lib/helpers/Encrypt');
 
 const hashedPass = encPass.generateHash('Aa123!!!');
 
-const user = {
+const mockUsers = {
   user1: {
     firstname: '',
     lastname: '',
@@ -51,4 +51,4 @@ const userExist = [
 ];
 
 
-module.exports = { user, userExist };
+module.exports = { mockUsers, userExist };
